@@ -16,24 +16,38 @@ import SwiftUI
 ///state is the property wrapper that let us modify the value
 ///$ sign reads and writes the value for any State property
 ///Changes will be reflected in real time
-///ForEach loop is used
+///ForEach loop is used for iteration in SwiftUI.
+///SwiftUI pickerview controller uses the ForEach loop to pick or displays the values.
+///2 in the numberOfPeople means that the picker will select the third index not value 2
 
 struct ContentView: View {
     @State var buttonTapped = 0
-    @State var name = ""
+    @State var tipPercentage = ""
+    @State var numberOfPeople = 2
+    
+    let tipPercentages = [15, 20, 30, 40, 50]
+    
     var body: some View {
         NavigationView {
             Form {
+                Section {
+                    TextField("Please enter the tip", text: $tipPercentage)
+                        .keyboardType(.decimalPad)
+                    Text("Your tip is: \(tipPercentage)")
+                }
                 
                 Section {
-                    TextField("Please enter your name", text: $name)
-                    Text("Your name is: \(name)")
+                    Picker("Number of people", selection: $numberOfPeople) {
+                        ForEach(2 ..< 100) { people in
+                            Text("\(people) number of People")
+                        }
+                    }
                 }
                 
                 Button(action: {
                     self.buttonTapped += 1
                 }) {
-                    Text("button Tapped: \(self.buttonTapped)")
+                    Text("button Tapped: \(self.buttonTapped) this is temporary")
                 }
                 
                 Section {
@@ -48,7 +62,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("SwiftUI")
+            .navigationBarTitle("WeSplit")
         }
         
     }
