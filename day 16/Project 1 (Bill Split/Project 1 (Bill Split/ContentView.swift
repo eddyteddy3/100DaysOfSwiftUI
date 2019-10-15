@@ -16,6 +16,7 @@ import SwiftUI
 ///state is the property wrapper that let us modify the value
 ///$ sign reads and writes the value for any State property
 ///Changes will be reflected in real time
+///ForEach loop is used
 
 struct ContentView: View {
     @State var buttonTapped = 0
@@ -36,19 +37,15 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
+                    ForEach(0 ..< 5) {_ in
+                        Text("Hello SwiftUI")
+                    }
                 }
                 
                 Group {
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
-                    Text("Hello SwiftUI")
+                    ForEach(0 ..< 5) {_ in
+                        Text("Hello SwiftUI!")
+                    }
                 }
             }
             .navigationBarTitle("SwiftUI")
