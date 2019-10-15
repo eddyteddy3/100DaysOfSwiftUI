@@ -19,24 +19,23 @@ import SwiftUI
 ///ForEach loop is used for iteration in SwiftUI.
 ///SwiftUI pickerview controller uses the ForEach loop to pick or displays the values.
 ///2 in the numberOfPeople means that the picker will select the third index not value 2
+///for the segmentedView in swiftUI, we need to add the modifier for it in the PickerView.
+///The text in the pickerView will presented on the segmentedView text
 
 struct ContentView: View {
     @State var buttonTapped = 0
-    @State var tipPercentage = ""
+    @State var tipPercentage = 25
+    @State var amount = ""
     @State var numberOfPeople = 2
     
-    let tipPercentages = [15, 20, 30, 40, 50]
+    let tipPercentages = [15, 20, 25, 30, 40]
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Please enter the tip", text: $tipPercentage)
+                    TextField("Billing Amount", text: $amount)
                         .keyboardType(.decimalPad)
-                    Text("Your tip is: \(tipPercentage)")
-                }
-                
-                Section {
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(2 ..< 100) { people in
                             Text("\(people) number of People")
@@ -44,10 +43,22 @@ struct ContentView: View {
                     }
                 }
                 
+                Section {
+                    Text("Calculated Tip: $")
+                }
+                
                 Button(action: {
                     self.buttonTapped += 1
                 }) {
                     Text("button Tapped: \(self.buttonTapped) this is temporary")
+                }
+                
+                Section {
+                    Picker("Percentage", selection: $tipPercentage) {
+                        ForEach(0 ..< tipPercentages.count) {percentage in
+                            Text("\(self.tipPercentages[percentage])%")
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section {
