@@ -38,9 +38,9 @@ struct ContentView: View {
         
         let tipValue = enteredAmount / 100 * tipSelected
         let grandTotal = tipValue + enteredAmount
-        let amountPerPerson = grandTotal / peopleCount
+        let amount = grandTotal / peopleCount
         
-        return amountPerPerson
+        return amount
     }
     
     var body: some View {
@@ -57,21 +57,21 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    Text("Calculated Tip: $")
+                    Picker("Percentage", selection: $tipPercentage) {
+                        ForEach(0 ..< tipPercentages.count) {percentage in
+                            Text("\(self.tipPercentages[percentage])%")
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
+                
+                Section(header: "Amount per person") {
+                    Text("Calculated Tip: $\(amountPerPerson)")
                 }
                 
                 Button(action: {
                     self.buttonTapped += 1
                 }) {
                     Text("button Tapped: \(self.buttonTapped) this is temporary")
-                }
-                
-                Section {
-                    Picker("Percentage", selection: $tipPercentage) {
-                        ForEach(0 ..< tipPercentages.count) {percentage in
-                            Text("\(self.tipPercentages[percentage])%")
-                        }
-                    }.pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section {
