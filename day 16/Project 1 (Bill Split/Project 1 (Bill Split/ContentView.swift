@@ -21,6 +21,7 @@ import SwiftUI
 ///2 in the numberOfPeople means that the picker will select the third index not value 2
 ///for the segmentedView in swiftUI, we need to add the modifier for it in the PickerView.
 ///The text in the pickerView will presented on the segmentedView text
+///We use computed properties for the sake of calculation in SwiftUI in most of the cases.
 
 struct ContentView: View {
     @State var buttonTapped = 0
@@ -29,6 +30,18 @@ struct ContentView: View {
     @State var numberOfPeople = 2
     
     let tipPercentages = [15, 20, 25, 30, 40]
+    
+    var amountPerPerson: Double {
+        let enteredAmount = Double(amount) ?? 0
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelected = Double(tipPercentages[tipPercentage])
+        
+        let tipValue = enteredAmount / 100 * tipSelected
+        let grandTotal = tipValue + enteredAmount
+        let amountPerPerson = grandTotal / peopleCount
+        
+        return amountPerPerson
+    }
     
     var body: some View {
         NavigationView {
