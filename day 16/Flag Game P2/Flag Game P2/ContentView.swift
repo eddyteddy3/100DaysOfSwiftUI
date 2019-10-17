@@ -10,11 +10,13 @@
 ///ZStack places the views in depth; 3 Dimensional, On top of each other
 ///Spacer pushes the views
 ///Aligmnent Property can align the views i.e. Top, Left, Right
-///
-
+///we can also embed the alert controller in button upon some state change
+///The alert toggles back the showAlert to false the button got clicked in Alert View.
 import SwiftUI
 
 struct ContentView: View {
+    @State var showAlert = false
+    
     var body: some View {
         ZStack {
             Color(red: 0.4, green: 0.5, blue: 0.7).edgesIgnoringSafeArea(.all)
@@ -43,9 +45,11 @@ struct ContentView: View {
                     }.background(Color.pink.frame(width:300, height:400)).padding()
                 
                 Button(action: {
-                    print("button tapped")
+                    self.showAlert = true
                 }) {
-                    Image(systemName: "pencil").foregroundColor(.white)
+                    Text("Show Alert").foregroundColor(.white)
+                }.alert(isPresented: $showAlert) { () -> Alert in
+                    Alert(title: Text("Alert!"), message: Text("This is alert message"), dismissButton: .default(Text("Gotcha!")))
                 }
             }
         }
