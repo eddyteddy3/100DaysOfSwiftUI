@@ -10,28 +10,31 @@
 ///ZStack places the views in depth; 3 Dimensional, On top of each other
 ///Spacer pushes the views
 ///Aligmnent Property can align the views i.e. Top, Left, Right
-///
+///to add color to
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 100) {
-            HStack(spacing: 100) {
-                Text("1")
-                Text("2")
-                Text("3")
-            }
-            HStack(spacing: 100) {
-                Text("4")
-                Text("5")
-                Text("6")
-            }
-            HStack(spacing: 100) {
-                Text("7")
-                Text("8")
-                Text("9")
-            }
+        ZStack {
+            Color(red: 0.4, green: 0.5, blue: 0.7).edgesIgnoringSafeArea(.all)
+            VStack(spacing: 100) {
+                HStack(spacing: 100) {
+                    Text("1")
+                    Text("2")
+                    Text("3")
+                }
+                HStack(spacing: 100) {
+                    Text("4")
+                    Text("5")
+                    Text("6")
+                }
+                HStack(spacing: 100) {
+                    Text("7")
+                    Text("8")
+                    Text("9")
+                }
+            }.background(Color.yellow)
         }
         
     }
