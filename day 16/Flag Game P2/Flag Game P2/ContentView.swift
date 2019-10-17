@@ -10,7 +10,7 @@
 ///ZStack places the views in depth; 3 Dimensional, On top of each other
 ///Spacer pushes the views
 ///Aligmnent Property can align the views i.e. Top, Left, Right
-///to add color to
+///
 
 import SwiftUI
 
@@ -18,7 +18,11 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color(red: 0.4, green: 0.5, blue: 0.7).edgesIgnoringSafeArea(.all)
+            
+            LinearGradient(gradient: Gradient(colors: [.gray, .white]), startPoint: .top, endPoint: .bottom)
+            
             VStack(spacing: 100) {
+                
                 HStack(spacing: 100) {
                     Text("1")
                     Text("2")
@@ -34,7 +38,7 @@ struct ContentView: View {
                     Text("8")
                     Text("9")
                 }
-            }.background(Color.yellow)
+            }.background(Color.pink.frame(width:300, height:400))
         }
         
     }
