@@ -17,40 +17,29 @@ import SwiftUI
 struct ContentView: View {
     @State var showAlert = false
     
+    var flags = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
+    var randomNumber = Int.random(in: 0...3)
+    
     var body: some View {
         ZStack {
-            Color(red: 0.4, green: 0.5, blue: 0.7).edgesIgnoringSafeArea(.all)
+            Color(red: 0.1, green: 0.4, blue: 0.5).edgesIgnoringSafeArea(.all)
             
-            LinearGradient(gradient: Gradient(colors: [.gray, .white]), startPoint: .top, endPoint: .bottom)
-            
-            VStack {
-                VStack(spacing: 100) {
-                    
-                    HStack(spacing: 100) {
-                        Text("1")
-                        Text("2")
-                        Text("3")
-                    }
-                    HStack(spacing: 100) {
-                        Text("4")
-                        Text("5")
-                        Text("6")
-                    }
-                    HStack(spacing: 100) {
-                        Text("7")
-                        Text("8")
-                        Text("9")
-                    }
-                    
-                    }.background(Color.pink.frame(width:300, height:400)).padding()
-                
-                Button(action: {
-                    self.showAlert = true
-                }) {
-                    Text("Show Alert").foregroundColor(.white)
-                }.alert(isPresented: $showAlert) { () -> Alert in
-                    Alert(title: Text("Alert!"), message: Text("This is alert message"), dismissButton: .default(Text("Gotcha!")))
+            VStack(spacing: 50) {
+                VStack {
+                    Text("Chose the flag.").foregroundColor(.white)
+                    Text(flags[randomNumber]).foregroundColor(.white)
                 }
+                
+                VStack(spacing: 30) {
+                    ForEach(0 ..< 3) { number in
+                        Button(action: {
+                            //flag button tapped
+                        }) {
+                            Image(self.flags[number]).renderingMode(.original)
+                        }
+                    }
+                }
+                Spacer()
             }
         }
     }
