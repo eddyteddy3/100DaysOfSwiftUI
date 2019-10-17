@@ -12,13 +12,16 @@
 ///Aligmnent Property can align the views i.e. Top, Left, Right
 ///we can also embed the alert controller in button upon some state change
 ///The alert toggles back the showAlert to false the button got clicked in Alert View.
+///add shullfed() method after array will shuffle the array
+ 
 import SwiftUI
 
 struct ContentView: View {
     @State var showAlert = false
+    @State var alertTitle = ""
     
-    var flags = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"]
-    var randomNumber = Int.random(in: 0...3)
+    @State var flags = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
+    @State var randomNumber = Int.random(in: 0...3)
     
     var body: some View {
         ZStack {
@@ -33,15 +36,33 @@ struct ContentView: View {
                 VStack(spacing: 30) {
                     ForEach(0 ..< 3) { number in
                         Button(action: {
-                            //flag button tapped
+                            self.checkAnswer(self.randomNumber)
                         }) {
                             Image(self.flags[number]).renderingMode(.original)
+                        }.alert(isPresented: self.$showAlert) { () -> Alert in
+                            Alert(title: Text("Result"), message: Text(self.alertTitle), dismissButton: .default(Text("Gotcha!"), action: {
+                                self.resetGame()
+                            }))
                         }
                     }
                 }
                 Spacer()
             }
         }
+    }
+    func checkAnswer(_ number: Int) {
+        if number == randomNumber {
+            self.alertTitle = "Correct!"
+        } else {
+            self.alertTitle = "Wrong!"
+        }
+        
+        self.showAlert = true
+    }
+    
+    func resetGame() {
+        self.randomNumber = Int.random(in: 0...3)
+        self.flags.shuffle()
     }
 }
 
