@@ -21,26 +21,34 @@ struct ContentView: View {
             
             LinearGradient(gradient: Gradient(colors: [.gray, .white]), startPoint: .top, endPoint: .bottom)
             
-            VStack(spacing: 100) {
+            VStack {
+                VStack(spacing: 100) {
+                    
+                    HStack(spacing: 100) {
+                        Text("1")
+                        Text("2")
+                        Text("3")
+                    }
+                    HStack(spacing: 100) {
+                        Text("4")
+                        Text("5")
+                        Text("6")
+                    }
+                    HStack(spacing: 100) {
+                        Text("7")
+                        Text("8")
+                        Text("9")
+                    }
+                    
+                    }.background(Color.pink.frame(width:300, height:400)).padding()
                 
-                HStack(spacing: 100) {
-                    Text("1")
-                    Text("2")
-                    Text("3")
+                Button(action: {
+                    print("button tapped")
+                }) {
+                    Image(systemName: "pencil").foregroundColor(.white)
                 }
-                HStack(spacing: 100) {
-                    Text("4")
-                    Text("5")
-                    Text("6")
-                }
-                HStack(spacing: 100) {
-                    Text("7")
-                    Text("8")
-                    Text("9")
-                }
-            }.background(Color.pink.frame(width:300, height:400))
+            }
         }
-        
     }
 }
 
