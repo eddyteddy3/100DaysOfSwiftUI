@@ -10,14 +10,22 @@
 ///This is also called opaque type properties.
 ///we use ternary operator for conditional modifier.
 ///Environmental Modifiers can be applied to many views at same time but not every modifier is the same modifier.
+///We can also use views as properties
+///we can also use computed properties
+
 
 import SwiftUI
 
 struct ContentView: View {
     @State var isText = false
+    var textProperty1 = Text("This is view 1")
+    var computedTextProperty: Text { Text("This is computed text View") }
     
     var body: some View {
         VStack {
+            textProperty1
+            computedTextProperty
+            
             Button("Toggle Color") {
                 self.isText.toggle()
             }.font(.subheadline)
