@@ -5,6 +5,8 @@
 //  Created by Moazzam Tahir on 20/10/2019.
 //  Copyright © 2019 Moazzam Tahir. All rights reserved.
 //
+
+//MARK: Details
 ///Modifier Order matters because we call the modifier, it creates the new view and then stacks up the new view on top of it.
 ///Some View is there because it is to return any kind of same view back to SwiftUI/Compiler. Because if we write View instead, the whole thing would crash
 ///This is also called opaque type properties.
@@ -12,9 +14,16 @@
 ///Environmental Modifiers can be applied to many views at same time but not every modifier is the same modifier.
 ///We can also use views as properties
 ///we can also use computed properties
+///instead of duplicating the views again and again we can extract the subview to reduce the code. this is also called views composition.
 
 
 import SwiftUI
+
+struct texts: View {
+    var body: some View {
+        Text("Hello")
+    }
+}
 
 struct ContentView: View {
     @State var isText = false
@@ -25,6 +34,10 @@ struct ContentView: View {
         VStack {
             textProperty1
             computedTextProperty
+            
+            texts()
+                .font(.largeTitle)
+                .foregroundColor(.red)
             
             Button("Toggle Color") {
                 self.isText.toggle()
