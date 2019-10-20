@@ -6,20 +6,35 @@
 //  Copyright © 2019 Moazzam Tahir. All rights reserved.
 //
 ///Modifier Order matters because we call the modifier, it creates the new view and then stacks up the new view on top of it.
-
+///Some View is there because it is to return any kind of same view back to SwiftUI/Compiler. Because if we write View instead, the whole thing would crash
+///This is also called opaque type properties.
+///we use ternary operator for conditional modifier.
+///Environmental Modifiers can be applied to many views at same time but not every modifier is the same modifier.
 
 import SwiftUI
 
 struct ContentView: View {
+    @State var isText = false
+    
     var body: some View {
-        Text("Hello World")
-            .background(Color.yellow)
-            .padding()
-            .background(Color.blue)
-            .padding()
-            .background(Color.green)
-            .padding()
-            .background(Color.red)
+        VStack {
+            Button("Toggle Color") {
+                self.isText.toggle()
+            }.font(.subheadline)
+            
+            Text("Conditional Modifier")
+                .foregroundColor(self.isText ? Color.red : Color.green)
+            
+            Text("Hello World")
+                .background(Color.yellow)
+                .padding()
+                .background(Color.blue)
+                .padding()
+                .background(Color.green)
+                .padding()
+                .background(Color.red)
+        }
+        .font(.title)
     }
 }
 
