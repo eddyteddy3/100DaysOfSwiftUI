@@ -16,7 +16,9 @@
 ///we can also use computed properties
 ///instead of duplicating the views again and again we can extract the subview to reduce the code. this is also called views composition.
 ///we can also use the custom modifier that will be utilized by every view, seperately
-
+///Extensions can be utilized as well, to use the custom modifiers in smart way
+///custom container can also be defined.
+///
 import SwiftUI
 
 struct texts: View {
@@ -35,6 +37,12 @@ struct customModifier: ViewModifier {
     }
 }
 
+extension View {
+    func customText() -> some View {
+        self.modifier(customModifier())
+    }
+}
+
 struct ContentView: View {
     @State var isText = false
     var textProperty1 = Text("This is view 1")
@@ -43,6 +51,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             textProperty1
+                .customText()
             computedTextProperty
                 .modifier(customModifier())
             
