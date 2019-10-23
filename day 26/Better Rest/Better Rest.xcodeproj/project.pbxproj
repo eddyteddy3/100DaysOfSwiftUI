@@ -13,6 +13,7 @@
 		03A2BFC2235F7817008A1755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A2BFC1235F7817008A1755 /* Assets.xcassets */; };
 		03A2BFC5235F7817008A1755 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A2BFC4235F7817008A1755 /* Preview Assets.xcassets */; };
 		03A2BFC8235F7817008A1755 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A2BFC6235F7817008A1755 /* LaunchScreen.storyboard */; };
+		03A2BFD0236063F0008A1755 /* BetterRest.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 03A2BFCF236063F0008A1755 /* BetterRest.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		03A2BFC4235F7817008A1755 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		03A2BFC7235F7817008A1755 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03A2BFC9235F7817008A1755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03A2BFCF236063F0008A1755 /* BetterRest.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BetterRest.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				03A2BFBB235F7811008A1755 /* AppDelegate.swift */,
 				03A2BFBD235F7811008A1755 /* SceneDelegate.swift */,
 				03A2BFBF235F7811008A1755 /* ContentView.swift */,
+				03A2BFCF236063F0008A1755 /* BetterRest.mlmodel */,
 				03A2BFC1235F7817008A1755 /* Assets.xcassets */,
 				03A2BFC6235F7817008A1755 /* LaunchScreen.storyboard */,
 				03A2BFC9235F7817008A1755 /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03A2BFBC235F7811008A1755 /* AppDelegate.swift in Sources */,
+				03A2BFD0236063F0008A1755 /* BetterRest.mlmodel in Sources */,
 				03A2BFBE235F7811008A1755 /* SceneDelegate.swift in Sources */,
 				03A2BFC0235F7811008A1755 /* ContentView.swift in Sources */,
 			);

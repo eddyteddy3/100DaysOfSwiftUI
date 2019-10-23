@@ -14,16 +14,27 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var stepperValue = 8.0
-    @State private var datePicker = Date()
+    @State private var sleepingHour = Date()
+    @State private var coffeCups = 1
     
     var body: some View {
-        VStack {
-            Stepper(value: $stepperValue, in: 1...10, step: 0.25) {
-                Text("\(self.stepperValue, specifier: "%g") Hours")
-            }.padding()
-            
-            DatePicker(selection: $datePicker, displayedComponents: .date) {
-                Text("Select Date").padding()
+        NavigationView {
+            VStack {
+                
+                Text("When do you wake up")
+                DatePicker(selection: $sleepingHour, displayedComponents: .hourAndMinute) {
+                    Text("Time").padding().font(.body)
+                }
+                
+                Text("Amount of sleep you desire?")
+                Stepper(value: $stepperValue, in: 1...12, step: 0.25) {
+                    Text("\(self.stepperValue, specifier: "%g") Hours")
+                }.padding()
+                
+                Text("Amount of coffee you take?")
+                Stepper(value: $coffeCups, in: 1...20, step: 1) {
+                    Text("\(self.coffeCups) Cups")
+                }.padding()
             }
         }
     }
