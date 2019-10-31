@@ -14,20 +14,41 @@
 import SwiftUI
 
 struct ContentView: View {
-    let array = ["eddy", "teddy", "moazzam", "galactus"]
+    @State private var usedWords = [String]()
+    @State private var rootWord = ""
+    @State private var textFieldWord = ""
     
     var body: some View {
-        var textArray = [String]()
+        var wordArray = [String]()
         if let fileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let fileContent = try? String(contentsOf: fileURL) {
                 let array = fileContent.components(separatedBy: "\n")
-                textArray = array
+                wordArray = array
             }
         }
         
-        return List(textArray, id: \.self) {
-            Text($0)
+        return NavigationView {
+            VStack {
+                TextField("Enter the word", text: $textFieldWord, onCommit: addNewWord)
+                .textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 8)
+                    .padding()
+                    .autocapitalization(.none)
+                List(usedWords, id: \.self) {
+                    Image(systemName: "\(self.usedWords.count).circle")
+                    Text($0)
+                }
+            }.padding()
+                .navigationBarTitle(rootWord)
         }
+    }
+    
+    func addNewWord() {
+        let answer = textFieldWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard answer.count > 0 else {return}
+        
+        usedWords.insert(answer, at: 0)
+        textFieldWord = ""
     }
 }
 
