@@ -18,16 +18,18 @@ struct ContentView: View {
     @State private var rootWord = ""
     @State private var textFieldWord = ""
     
-    var body: some View {
-        var wordArray = [String]()
+    func fetchWords() {
         if let fileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let fileContent = try? String(contentsOf: fileURL) {
                 let array = fileContent.components(separatedBy: "\n")
-                wordArray = array
+                guard let word = array.randomElement() else {return}
+                rootWord = word
             }
         }
-        
-        return NavigationView {
+    }
+    
+    var body: some View {
+        NavigationView {
             VStack {
                 TextField("Enter the word", text: $textFieldWord, onCommit: addNewWord)
                 .textFieldStyle(RoundedBorderTextFieldStyle()).shadow(radius: 8)
@@ -37,8 +39,12 @@ struct ContentView: View {
                     Image(systemName: "\(self.usedWords.count).circle")
                     Text($0)
                 }
-            }.padding()
+            }
                 .navigationBarTitle(rootWord)
+            .navigationBarItems(trailing: Button(action: fetchWords){
+                Text("Refresh")
+            })
+                .onAppear(perform: fetchWords)
         }
     }
     
@@ -47,8 +53,42 @@ struct ContentView: View {
         
         guard answer.count > 0 else {return}
         
+        guard isPossible(word: answer) else {return}
+        guard isUsedBefore(word: answer) else {return}
+        guard isPossible(word: answer) else {return}
+        
         usedWords.insert(answer, at: 0)
         textFieldWord = ""
+    }
+    
+    func isUsedBefore(word: String) -> Bool {
+        if usedWords.contains(word) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isPossible(word: String) -> Bool {
+        var rootWordCopy = rootWord
+        
+        for letter in word {
+            if let position = rootWordCopy.firstIndex(of: letter) {
+                rootWordCopy.remove(at: position)
+            } else {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    func isReal(word: String) -> Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0, length: word.utf8.count)
+        let misSpellChecker = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        
+        return misSpellChecker.location == NSNotFound
     }
 }
 
