@@ -18,6 +18,10 @@ struct ContentView: View {
     @State private var rootWord = ""
     @State private var textFieldWord = ""
     
+    @State private var message = ""
+    @State private var title = ""
+    @State private var isShowing = false
+    
     func fetchWords() {
         if let fileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             if let fileContent = try? String(contentsOf: fileURL) {
@@ -45,6 +49,9 @@ struct ContentView: View {
                 Text("Refresh")
             })
                 .onAppear(perform: fetchWords)
+                .alert(isPresented: $isShowing) { () -> Alert in
+                    Alert(title: Text(title), message: Text(message), dismissButton: .default(Text("Okay")))
+            }
         }
     }
     
@@ -53,9 +60,18 @@ struct ContentView: View {
         
         guard answer.count > 0 else {return}
         
-        guard isPossible(word: answer) else {return}
-        guard isUsedBefore(word: answer) else {return}
-        guard isPossible(word: answer) else {return}
+        guard isPossible(word: answer) else {
+            showAlert(title: "Not Possible", message: "Combination of words is not possible")
+            return
+        }
+        guard isUsedBefore(word: answer) else {
+            showAlert(title: "Used Before", message: "The combination of words has already been used.")
+            return
+        }
+        guard isReal(word: answer) else {
+            showAlert(title: "Spelling Error", message: "The word is wrong.")
+            return
+        }
         
         usedWords.insert(answer, at: 0)
         textFieldWord = ""
@@ -89,6 +105,12 @@ struct ContentView: View {
         let misSpellChecker = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         
         return misSpellChecker.location == NSNotFound
+    }
+    
+    func showAlert(title: String, message: String) {
+        self.message = message
+        self.title = title
+        self.isShowing = true
     }
 }
 
