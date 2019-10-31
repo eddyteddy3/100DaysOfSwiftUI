@@ -13,6 +13,7 @@
 		03E670122369E2B70003FD6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03E670112369E2B70003FD6B /* Assets.xcassets */; };
 		03E670152369E2B70003FD6B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03E670142369E2B70003FD6B /* Preview Assets.xcassets */; };
 		03E670182369E2B70003FD6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03E670162369E2B70003FD6B /* LaunchScreen.storyboard */; };
+		03E67020236A06EC0003FD6B /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03E6701F236A06EC0003FD6B /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		03E670142369E2B70003FD6B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		03E670172369E2B70003FD6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E670192369E2B70003FD6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03E6701F236A06EC0003FD6B /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				03E6700B2369E2B30003FD6B /* AppDelegate.swift */,
 				03E6700D2369E2B30003FD6B /* SceneDelegate.swift */,
+				03E6701F236A06EC0003FD6B /* start.txt */,
 				03E6700F2369E2B30003FD6B /* ContentView.swift */,
 				03E670112369E2B70003FD6B /* Assets.xcassets */,
 				03E670162369E2B70003FD6B /* LaunchScreen.storyboard */,
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E670182369E2B70003FD6B /* LaunchScreen.storyboard in Resources */,
+				03E67020236A06EC0003FD6B /* start.txt in Resources */,
 				03E670152369E2B70003FD6B /* Preview Assets.xcassets in Resources */,
 				03E670122369E2B70003FD6B /* Assets.xcassets in Resources */,
 			);
