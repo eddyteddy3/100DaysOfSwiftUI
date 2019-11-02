@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03D9BA01236D9C750013C646 /* animation .swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9BA00236D9C750013C646 /* animation .swift */; };
+		03D9BA03236DA1B10013C646 /* transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9BA02236DA1B10013C646 /* transitions.swift */; };
 		03F436B5236CD8C10071292A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F436B4236CD8C10071292A /* AppDelegate.swift */; };
 		03F436B7236CD8C10071292A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F436B6236CD8C10071292A /* SceneDelegate.swift */; };
 		03F436B9236CD8C10071292A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F436B8236CD8C10071292A /* ContentView.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		03D9BA00236D9C750013C646 /* animation .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "animation .swift"; sourceTree = "<group>"; };
+		03D9BA02236DA1B10013C646 /* transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transitions.swift; sourceTree = "<group>"; };
 		03F436B1236CD8C10071292A /* animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F436B4236CD8C10071292A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F436B6236CD8C10071292A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				03D9BA00236D9C750013C646 /* animation .swift */,
+				03D9BA02236DA1B10013C646 /* transitions.swift */,
 				03F436B3236CD8C10071292A /* animations */,
 				03F436B2236CD8C10071292A /* Products */,
 			);
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F436B5236CD8C10071292A /* AppDelegate.swift in Sources */,
+				03D9BA03236DA1B10013C646 /* transitions.swift in Sources */,
 				03F436B7236CD8C10071292A /* SceneDelegate.swift in Sources */,
 				03F436B9236CD8C10071292A /* ContentView.swift in Sources */,
 				03D9BA01236D9C750013C646 /* animation .swift in Sources */,
