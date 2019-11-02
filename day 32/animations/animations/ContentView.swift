@@ -16,13 +16,27 @@ import SwiftUI
 struct ContentView: View {
     @State private var animationValue: CGFloat = 1
     @State private var toggleAnimation = true
+    @State private var rotationDegrees: Double = 0
     
     var body: some View {
         VStack {
+            Spacer()
             Stepper("Animation", value: $animationValue.animation(), in: 1...10)
             
             Spacer()
             
+            Button("Spin Me") {
+                withAnimation {
+                    self.rotationDegrees += 360
+                }
+            }
+            .padding(50)
+            .background(Color(.gray))
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .rotation3DEffect(.degrees(self.rotationDegrees), axis: (x: 1, y: 1, z: 0))
+            
+            Spacer()
             
             Button("Tap me") {
                 self.animationValue += 1
@@ -44,6 +58,7 @@ struct ContentView: View {
             .onAppear {
                     self.animationValue = 2
             }
+            Spacer()
         }
     }
 }
