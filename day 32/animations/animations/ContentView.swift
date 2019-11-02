@@ -34,7 +34,7 @@ struct ContentView: View {
             .background(Color(.gray))
             .foregroundColor(.white)
             .clipShape(Circle())
-            .rotation3DEffect(.degrees(self.rotationDegrees), axis: (x: 1, y: 1, z: 0))
+            .rotation3DEffect(.degrees(self.rotationDegrees), axis: (x: 0, y: 1, z: 1))
             
             Spacer()
             
