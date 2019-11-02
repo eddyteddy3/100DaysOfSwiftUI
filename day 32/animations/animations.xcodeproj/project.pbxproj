@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03D9BA01236D9C750013C646 /* animation .swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9BA00236D9C750013C646 /* animation .swift */; };
 		03D9BA03236DA1B10013C646 /* transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9BA02236DA1B10013C646 /* transitions.swift */; };
+		03D9BA05236DA4A90013C646 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9BA04236DA4A90013C646 /* CardView.swift */; };
 		03F436B5236CD8C10071292A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F436B4236CD8C10071292A /* AppDelegate.swift */; };
 		03F436B7236CD8C10071292A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F436B6236CD8C10071292A /* SceneDelegate.swift */; };
 		03F436B9236CD8C10071292A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F436B8236CD8C10071292A /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		03D9BA00236D9C750013C646 /* animation .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "animation .swift"; sourceTree = "<group>"; };
 		03D9BA02236DA1B10013C646 /* transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transitions.swift; sourceTree = "<group>"; };
+		03D9BA04236DA4A90013C646 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		03F436B1236CD8C10071292A /* animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F436B4236CD8C10071292A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F436B6236CD8C10071292A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				03F436B4236CD8C10071292A /* AppDelegate.swift */,
 				03F436B6236CD8C10071292A /* SceneDelegate.swift */,
 				03F436B8236CD8C10071292A /* ContentView.swift */,
+				03D9BA04236DA4A90013C646 /* CardView.swift */,
 				03F436BA236CD8C50071292A /* Assets.xcassets */,
 				03F436BF236CD8C50071292A /* LaunchScreen.storyboard */,
 				03F436C2236CD8C50071292A /* Info.plist */,
@@ -156,6 +159,7 @@
 				03D9BA03236DA1B10013C646 /* transitions.swift in Sources */,
 				03F436B7236CD8C10071292A /* SceneDelegate.swift in Sources */,
 				03F436B9236CD8C10071292A /* ContentView.swift in Sources */,
+				03D9BA05236DA4A90013C646 /* CardView.swift in Sources */,
 				03D9BA01236D9C750013C646 /* animation .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
