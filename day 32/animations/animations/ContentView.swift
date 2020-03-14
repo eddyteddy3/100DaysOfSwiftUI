@@ -20,11 +20,11 @@ struct ContentView: View {
         Button("Tap Me" ) {
             self.increaseSize += 1
         }
+        .padding(70)
         .background(Color.init(.darkGray))
-        .padding()
+        .clipShape(Circle())
+        .overlay(Circle.init().stroke(Color.red).scaleEffect(increaseSize).opacity(Double(2 - increaseSize)).animation(Animation.easeOut(duration: 0.1).repeatForever(autoreverses: false)))
         .scaleEffect(increaseSize)
-        .animation(.easeInOut)
-        .blur(radius: increaseSize * 2)
         
     }
 }
