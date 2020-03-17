@@ -15,9 +15,17 @@ class User: ObservableObject {
 
 struct SecondView: View {
     var name = ""
+    @Environment(\.presentationMode) var presentationMode //store the values that is being provided externally such as Dark or Light Mode.
     
     var body: some View {
-        Text("Hello, \(name)")
+        VStack {
+            Text("Hello, \(name)")
+            
+            Button("Dimiss") {
+                self.presentationMode.wrappedValue.dismiss() //dismissing the controller
+            }
+        }
+
     }
 }
 
