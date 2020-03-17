@@ -13,15 +13,32 @@ class User: ObservableObject {
     @Published var lastName = "World"
 }
 
+struct SecondView: View {
+    var name = ""
+    
+    var body: some View {
+        Text("Hello, \(name)")
+    }
+}
+
 struct ContentView: View {
     @ObservedObject var user = User() //ObservedObjects will listen to those annoucemets
+    @State var isPresented = false
     
     var body: some View {
         VStack {
-            Text("First name: \(user.firstName), Last name: \(user.lastName)")
+            VStack {
+                Text("First name: \(user.firstName), Last name: \(user.lastName)")
+                
+                TextField("name", text: $user.firstName)
+                TextField("last", text: $user.lastName)
+            }.padding(30)
             
-            TextField("name", text: $user.firstName)
-            TextField("last", text: $user.lastName)
+            Button("Show second screen") {
+                self.isPresented.toggle()
+            }.sheet(isPresented: $isPresented) {
+                SecondView.init(name: "Mouzzam") //accessing the second property
+            }
         }
     }
 }
