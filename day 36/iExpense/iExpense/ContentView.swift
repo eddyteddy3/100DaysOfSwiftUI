@@ -25,7 +25,6 @@ struct SecondView: View {
                 self.presentationMode.wrappedValue.dismiss() //dismissing the controller
             }
         }
-
     }
 }
 
