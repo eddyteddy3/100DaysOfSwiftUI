@@ -17,14 +17,18 @@ struct OnDeleteModifier: View {
             List {
                 ForEach(array, id: \.self) {
                     Text("\($0)")
-                }
+                }.onDelete(perform: remove)
             }
             
             Button("Add Number") {
                 self.number += 1
-                self.array.appent(self.number)
+                self.array.append(self.number)
             }
         }
+    }
+    
+    func remove(at offset: IndexSet) {
+        array.remove(atOffsets: offset)
     }
 }
 

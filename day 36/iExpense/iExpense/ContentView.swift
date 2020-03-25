@@ -44,7 +44,7 @@ struct ContentView: View {
             Button("Show second screen") {
                 self.isPresented.toggle()
             }.sheet(isPresented: $isPresented) {
-                SecondView.init(name: "Mouzzam") //accessing the second property
+                User_Defaults() //accessing the second property
             }
         }
     }

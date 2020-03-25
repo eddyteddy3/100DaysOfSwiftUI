@@ -14,6 +14,7 @@
 		033CA941241EC1CD00FD0D18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033CA940241EC1CD00FD0D18 /* Preview Assets.xcassets */; };
 		033CA944241EC1CD00FD0D18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 033CA942241EC1CD00FD0D18 /* LaunchScreen.storyboard */; };
 		033CA9582422C90500FD0D18 /* OnDeleteModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033CA9572422C90500FD0D18 /* OnDeleteModifier.swift */; };
+		033F0088242BD7B2005478B8 /* User Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033F0087242BD7B2005478B8 /* User Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		033CA943241EC1CD00FD0D18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		033CA945241EC1CD00FD0D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		033CA9572422C90500FD0D18 /* OnDeleteModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDeleteModifier.swift; sourceTree = "<group>"; };
+		033F0087242BD7B2005478B8 /* User Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Defaults.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				033CA939241EC1CB00FD0D18 /* SceneDelegate.swift */,
 				033CA9572422C90500FD0D18 /* OnDeleteModifier.swift */,
 				033CA93B241EC1CB00FD0D18 /* ContentView.swift */,
+				033F0087242BD7B2005478B8 /* User Defaults.swift */,
 				033CA93D241EC1CD00FD0D18 /* Assets.xcassets */,
 				033CA942241EC1CD00FD0D18 /* LaunchScreen.storyboard */,
 				033CA945241EC1CD00FD0D18 /* Info.plist */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033F0088242BD7B2005478B8 /* User Defaults.swift in Sources */,
 				033CA9582422C90500FD0D18 /* OnDeleteModifier.swift in Sources */,
 				033CA938241EC1CB00FD0D18 /* AppDelegate.swift in Sources */,
 				033CA93A241EC1CB00FD0D18 /* SceneDelegate.swift in Sources */,
