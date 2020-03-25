@@ -44,7 +44,7 @@ struct ContentView: View {
             Button("Show second screen") {
                 self.isPresented.toggle()
             }.sheet(isPresented: $isPresented) {
-                User_Defaults() //accessing the second property
+                iExpenseView() //accessing the second property
             }
         }
     }
