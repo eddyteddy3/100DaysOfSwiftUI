@@ -8,9 +8,16 @@
 
 import SwiftUI
 
+struct CustomObject: Codable {
+    var name: String
+    var id: Int
+}
+
 struct User_Defaults: View {
     @State var count = UserDefaults.standard.integer(forKey: "tap")
     @State var count2 = UserDefaults.standard.integer(forKey: "tap2")
+    
+    @State var customObject = CustomObject(name: "ABC", id: 1)
     
     var body: some View {
         HStack {
@@ -18,6 +25,11 @@ struct User_Defaults: View {
                 self.count += 1
                 UserDefaults.standard.set(self.count, forKey: "tap")
                 UserDefaults.standard.set(self.count - 1, forKey: "tap2")
+                
+                let encoder = JSONEncoder()
+                if let data = try? encoder.encode(self.customObject) {
+                    UserDefaults.standard.set(data, forKey: "custom")
+                }
             }
             
             Text("Counter 1: \(count)")
