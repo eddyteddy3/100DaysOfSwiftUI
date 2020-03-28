@@ -21,6 +21,7 @@ class Expenses: ObservableObject {
 
 struct iExpenseView: View {
     @ObservedObject var expenseList = Expenses()
+    @State var isPresented = false
     
     var body: some View {
         NavigationView {
@@ -28,18 +29,19 @@ struct iExpenseView: View {
                 ForEach(expenseList.items, id: \.id) { (item) in
                     Text(item.name)
                 }
-            .onDelete(perform: deleteItem)
+                .onDelete(perform: deleteItem)
             }
-        .navigationBarTitle("Expense List")
-        .navigationBarItems(leading:
-            Button(action: {
-                let expense = ExpenseItems(name: "Test", type: "IDK", amount: 1)
-                self.expenseList.items.append(expense)
-            }) {
-                Image(systemName: "plus")
+            .navigationBarTitle("Expense List")
+            .navigationBarItems(leading:
+                Button(action: {
+                    self.isPresented = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            )
+                .sheet(isPresented: $isPresented) {
+                    Add_New_View(expense: self.expenseList)
             }
-        )
-        
         }
     }
     
