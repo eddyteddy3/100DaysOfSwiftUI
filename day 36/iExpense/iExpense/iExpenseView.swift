@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ExpenseItems: Identifiable {
+struct ExpenseItems: Identifiable, Codable {
     let id = UUID()
     var name: String
     var type: String
@@ -16,7 +16,26 @@ struct ExpenseItems: Identifiable {
 }
 
 class Expenses: ObservableObject {
-    @Published var items = [ExpenseItems]()
+    @Published var items: [ExpenseItems] {
+        didSet {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(items) {
+                UserDefaults.standard.set(encoded, forKey: "items")
+            }
+        }
+    }
+    
+    init() {
+        if let items = UserDefaults.standard.data(forKey: "items") {
+            let decode = JSONDecoder()
+            if let decoded = try? decode.decode([ExpenseItems].self, from: items) {
+                self.items = decoded
+                return
+            }
+        }
+        
+        self.items = []
+    }
 }
 
 struct iExpenseView: View {
@@ -27,7 +46,11 @@ struct iExpenseView: View {
         NavigationView {
             List {
                 ForEach(expenseList.items, id: \.id) { (item) in
-                    Text(item.name)
+                    VStack {
+                        Text(item.name)
+                            .font(.title)
+                        Text(String(item.amount))
+                    }
                 }
                 .onDelete(perform: deleteItem)
             }
