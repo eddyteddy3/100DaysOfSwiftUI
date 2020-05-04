@@ -19,6 +19,7 @@
 		03DC9395245E193E00ECD71B /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 03DC9394245E193E00ECD71B /* missions.json */; };
 		03DC9397245E19C900ECD71B /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC9396245E19C900ECD71B /* Astronaut.swift */; };
 		03DC9399245E1BDE00ECD71B /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC9398245E1BDE00ECD71B /* BundleExtension.swift */; };
+		03DC939B245F63ED00ECD71B /* Missions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DC939A245F63ED00ECD71B /* Missions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		03DC9394245E193E00ECD71B /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 		03DC9396245E19C900ECD71B /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		03DC9398245E1BDE00ECD71B /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = "<group>"; };
+		03DC939A245F63ED00ECD71B /* Missions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				031948722433D631003753CE /* ScrollView.swift */,
 				031948742433D9D0003753CE /* DecodableJSONInput.swift */,
 				03DC9396245E19C900ECD71B /* Astronaut.swift */,
+				03DC939A245F63ED00ECD71B /* Missions.swift */,
 				03DC9398245E1BDE00ECD71B /* BundleExtension.swift */,
 				031948642433CA35003753CE /* Assets.xcassets */,
 				031948692433CA35003753CE /* LaunchScreen.storyboard */,
@@ -172,6 +175,7 @@
 				03DC9399245E1BDE00ECD71B /* BundleExtension.swift in Sources */,
 				03DC9397245E19C900ECD71B /* Astronaut.swift in Sources */,
 				031948632433CA33003753CE /* ContentView.swift in Sources */,
+				03DC939B245F63ED00ECD71B /* Missions.swift in Sources */,
 				031948752433D9D0003753CE /* DecodableJSONInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

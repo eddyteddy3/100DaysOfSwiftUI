@@ -9,13 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    let astronauts: [Astronaut] = Bundle.main.decode(fileName: "astronauts.json")
+    let missions: [Mission] = Bundle.main.decode(fileName: "missions.json")
+    
     var body: some View {
-        GeometryReader { geo in
-            Image("headerImage")
-            .resizable()
-                .aspectRatio(contentMode: .fit)
-            .frame(width: geo.size.width)
+        List(missions) { (astro) in
+            Text("\(astro.crew[0].name)")
         }
+        /*VStack {
+            Text("\(astronauts.count)")
+            Text("\(missions.count)")
+        }*/
     }
 }
 
