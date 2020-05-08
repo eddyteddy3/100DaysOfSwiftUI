@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView.init {
             List(missions) { mission in
-                NavigationLink(destination: Text("Detailed View")) {
+                NavigationLink(destination: MissionView(mission: mission)) {
                     Image(mission.image)
                     .resizable()
                     .scaledToFit()
