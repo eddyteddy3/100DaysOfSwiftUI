@@ -13,13 +13,24 @@ struct ContentView: View {
     let missions: [Mission] = Bundle.main.decode(fileName: "missions.json")
     
     var body: some View {
-        List(missions) { (astro) in
-            Text("\(astro.crew[0].name)")
+        NavigationView.init {
+            List(missions) { mission in
+                NavigationLink(destination: Text("Detailed View")) {
+                    Image(mission.image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    
+                    VStack {
+                        Text("\(mission.displayName)")
+                            .font(.headline)
+                        
+                        Text(mission.formattedLaunchDate)
+                    }
+                }
+            }
+        .navigationBarTitle("Apollo Missions")
         }
-        /*VStack {
-            Text("\(astronauts.count)")
-            Text("\(missions.count)")
-        }*/
     }
 }
 

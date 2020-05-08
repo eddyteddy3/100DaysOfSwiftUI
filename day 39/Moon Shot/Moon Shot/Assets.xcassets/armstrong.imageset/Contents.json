@@ -2,20 +2,21 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "medium-header.png",
       "scale" : "1x"
     },
     {
+      "filename" : "armstrong@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "armstrong@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

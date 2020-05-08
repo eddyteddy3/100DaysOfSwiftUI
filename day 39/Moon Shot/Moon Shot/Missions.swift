@@ -15,7 +15,25 @@ struct Crew: Codable {
 
 struct Mission: Codable, Identifiable {
     var id: Int
-    var launchDate: String?
+    var launchDate: Date?
     var crew: [Crew]
     var description: String
+    
+    var displayName: String {
+        return "Apollo \(id)"
+    }
+    
+    var image: String {
+        return "apollo\(id)"
+    }
+    
+    var formattedLaunchDate: String {
+        if let launchdate = launchDate {
+            let formatter =  DateFormatter()
+            formatter.dateStyle = .long
+            return formatter.string(from: launchdate)
+        } else {
+            return "N/A"
+        }
+    }
 }
