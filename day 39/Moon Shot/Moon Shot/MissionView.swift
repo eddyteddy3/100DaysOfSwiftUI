@@ -8,8 +8,14 @@
 
 import SwiftUI
 
+struct CrewMembers {
+    var role: String
+    var astronaut: Astronaut
+}
+
 struct MissionView: View {
     let mission: Mission
+    let astronauts: [CrewMembers]
     
     var body: some View {
         GeometryReader { geometry in
@@ -25,16 +31,52 @@ struct MissionView: View {
                     .padding()
                     
                     Spacer(minLength: 25)
+                    
+                    ForEach(self.astronauts, id: \.role) { crewMember in
+                        HStack {
+                            Image(crewMember.astronaut.id)
+                            .resizable()
+                            .frame(width: 84, height: 60)
+                            .clipShape(Capsule())
+                            
+                            
+                            VStack(alignment: .leading) {
+                                Text(crewMember.astronaut.name)
+                                    .font(.headline)
+                                
+                                Text(crewMember.role)
+                            }
+                        }
+                    }
                 }
             }
         }
+    }
+    
+    init(mission: Mission, astronauts: [Astronaut]) {
+        self.mission = mission
+        
+        var matches = [CrewMembers]()
+        
+        for member in mission.crew {
+            if let match = astronauts.first(where: { (astronaut) in
+                astronaut.id == member.name
+            }) {
+                matches.append(CrewMembers(role: member.role, astronaut: match))
+            } else {
+                fatalError("Missing \(member)")
+            }
+        }
+        
+        self.astronauts = matches
     }
 }
 
 struct MissionView_Previews: PreviewProvider {
     static let mission: [Mission] = Bundle.main.decode(fileName: "missions.json")
+    static let astronauts: [Astronaut] = Bundle.main.decode(fileName: "astronauts.json")
     
     static var previews: some View {
-        MissionView(mission: mission[0])
+        MissionView(mission: mission[0], astronauts: astronauts)
     }
 }
