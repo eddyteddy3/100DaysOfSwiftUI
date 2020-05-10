@@ -22,30 +22,35 @@ struct MissionView: View {
             ScrollView(.vertical) {
                 VStack {
                     Image(self.mission.image)
-                    .resizable()
-                    .scaledToFit()
+                        .resizable()
+                        .scaledToFit()
                         .frame(width: geometry.size.width * 0.7)
                         .padding(.top)
                     
                     Text(self.mission.description)
-                    .padding()
+                        .padding()
                     
                     Spacer(minLength: 25)
                     
                     ForEach(self.astronauts, id: \.role) { crewMember in
-                        HStack {
-                            Image(crewMember.astronaut.id)
-                            .resizable()
-                            .frame(width: 84, height: 60)
-                            .clipShape(Capsule())
+                        NavigationLink(destination: AstronautView.init(astronaut: crewMember.astronaut)) {
                             
-                            
-                            VStack(alignment: .leading) {
-                                Text(crewMember.astronaut.name)
-                                    .font(.headline)
+                            HStack {
+                                Image(crewMember.astronaut.id)
+                                    .resizable()
+                                    .frame(width: 84, height: 60)
+                                    .clipShape(Capsule())
                                 
-                                Text(crewMember.role)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(crewMember.astronaut.name)
+                                        .font(.headline)
+                                    
+                                    Text(crewMember.role)
+                                }
+                                Spacer()
                             }
+                            .padding(.horizontal)
                         }
                     }
                 }
