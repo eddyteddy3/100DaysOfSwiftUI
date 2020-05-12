@@ -21,10 +21,13 @@ struct Triangle: Shape {
     }
 }
 
-struct Arc: Shape {
+struct Arc: Shape, InsettableShape {
+    
     let startingAngle: Angle
     let endingAngle: Angle
     let clockwise: Bool
+    
+    var insetAmount: CGFloat = 0
     
     func path(in rect: CGRect) -> Path {
         let adjustmentAngel = Angle.degrees(90)
@@ -33,18 +36,30 @@ struct Arc: Shape {
         
         var path = Path()
         
-        path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2, startAngle: adjustedStartAngle, endAngle: adjustedEndAngle, clockwise: !clockwise)
+        path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.width / 2 - insetAmount, startAngle: adjustedStartAngle, endAngle: adjustedEndAngle, clockwise: !clockwise)
         
         return path
+    }
+    
+    func inset(by amount: CGFloat) -> some InsettableShape {
+        var arc = self
+        arc.insetAmount += amount
+        return arc
     }
 }
 
 struct ContentView: View {
+    @State var increaseAngle = 0
+    
     var body: some View {
-        Arc(startingAngle: Angle(degrees: 0), endingAngle: Angle(degrees: 90), clockwise: true)
-            .stroke(style: StrokeStyle(lineWidth: 12, lineCap: .round))
-            .frame(width: 300, height: 300)
-        
+        VStack {
+            Arc(startingAngle: Angle(degrees: 0), endingAngle: Angle(degrees: 90), clockwise: true)
+                .strokeBorder(Color.blue, lineWidth: 20)
+            
+            Button("Tap me") {
+                self.increaseAngle += 10
+            }
+        }
     }
 }
 
